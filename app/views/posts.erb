@@ -1,0 +1,15 @@
+Category: <%= @category.category %><br>
+
+Posts related to this category:<br>
+
+<% if !@posts.nil? %>
+  <% @posts.each do |post| %>
+    <a href="/categories/<%= @category.id %>/posts/<%= post.id %>"><%= post.post %></a><br/>
+  <% end %>
+<% end %>
+
+<form action="/categories/<%= @category.id %>/posts/new" method="post">
+  Post:<input type="text" name="post[post]">
+  Article:<input type="text" name="post[article]">
+  <input type="submit" value="Submit!">
+</form>
